@@ -9,121 +9,121 @@
     
 <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* Define a custom color palette for OCO Sports Group */
+        /* --- Dark Mode Color Palette for OCO Sports Group --- */
         :root {
-            --color-primary-dark: #2C2C2C; /* Dark Charcoal for text and elements */
-            --color-primary-light: #F0F0F0; /* Light background */
-            --color-accent: #DA291C;      /* OCO Red */
+            --color-bg-primary: #121212;      /* Very Dark Charcoal */
+            --color-bg-secondary: #1E1E1E;    /* Dark Card/Section Background */
+            --color-text-light: #F0F0F0;      /* Light Text */
+            --color-accent: #DA291C;          /* OCO Red */
         }
-        .bg-primary-dark { background-color: var(--color-primary-dark); }
-        .text-primary-dark { color: var(--color-primary-dark); }
+        
+        /* Helper Classes */
+        .bg-primary { background-color: var(--color-bg-primary); }
+        .bg-secondary { background-color: var(--color-bg-secondary); }
+        .text-light { color: var(--color-text-light); }
         .text-accent { color: var(--color-accent); }
         .bg-accent { background-color: var(--color-accent); }
         .border-accent { border-color: var(--color-accent); }
         .hover\:bg-accent-light:hover { background-color: #EF443B; /* Slightly lighter red for hover */ }
+        .shadow-slick { box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05); }
 
-        /* Custom font import (Inter is used by Tailwind default, but ensuring it) */
+
+        /* Base Styles */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--color-primary-light);
+            background-color: var(--color-bg-primary);
+            color: var(--color-text-light);
         }
 
         /* Responsive Hero Background Overlay */
         .hero-bg {
-            background-image: linear-gradient(rgba(44, 44, 44, 0.85), rgba(44, 44, 44, 0.85)), url('https://placehold.co/1200x800/2C2C2C/ffffff?text=Dynamic+Sports+Action+Background');
-            background-size: cover;
+            /* UPDATED: Uses the oco_logo.jpg file as a large, centered watermark. */
+            background-image: linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.85)), url('oco_logo.jpg');
+            background-size: 80% auto; /* Make the logo large, covering 80% of the container width */
+            background-repeat: no-repeat;
             background-position: center;
         }
 
-        /* Embed the OCO Sports Group logo directly as an SVG for sharpness and scalability */
-        .logo-svg {
-            width: 150px; /* Adjust size as needed */
-            height: auto;
-            display: block;
-            margin: 0 auto; /* Center the logo in the hero if needed, adjust if in nav */
-        }
-        .logo-svg .oco-color { fill: var(--color-accent); }
-        .logo-svg .sports-group-color { fill: #333333; /* Dark color for 'Sports Group' */ }
+        /* Logo styles remain the same for consistency */
     </style>
 </head>
 <body>
 
     <div id="app" class="min-h-screen antialiased">
 
-        <!-- Navigation Bar --><nav class="bg-white shadow-lg sticky top-0 z-10">
+        <!-- Navigation Bar (Slightly lighter dark color) --><nav class="bg-secondary shadow-slick sticky top-0 z-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-16">
                     <div class="flex-shrink-0">
                         <a href="#" class="flex items-center">
-                            <!-- Logo in Nav Bar - MUST BE NAMED oco_logo.jpg -->
                             <img src="oco_logo.jpg" alt="OCO Sports Group Logo" class="h-12 w-auto">
                         </a>
                     </div>
-                    <a href="#contact" class="hidden md:inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full text-primary-dark bg-gray-100 hover:bg-gray-200 transition duration-300">
+                    <a href="#contact" class="hidden md:inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full text-text-light bg-bg-primary hover:bg-gray-800 transition duration-300 shadow-lg">
                         <i data-lucide="mail" class="w-4 h-4 mr-2"></i> Get In Touch
                     </a>
                 </div>
             </div>
         </nav>
 
-        <!-- 1. Hero Section --><header class="hero-bg py-20 sm:py-32 text-white">
+        <!-- 1. Hero Section --><header class="hero-bg py-20 sm:py-32 text-light">
             <div class="max-w-6xl mx-auto px-4 text-center">
                 <h1 class="text-4xl sm:text-6xl font-extrabold mb-4 leading-tight">
                     <span class="text-accent">Elevating Performance.</span> Shaping Futures.
                 </h1>
-                <p class="text-xl sm:text-2xl font-light mb-10 opacity-90 max-w-3xl mx-auto">
-                    Strategic consultancy for athletes, clubs, and organizations at the pinnacle of sport.
+                <p class="text-xl sm:text-2xl font-light mb-10 opacity-80 max-w-3xl mx-auto">
+                    Strategic data analytics and research consultancy for elite sports organizations.
                 </p>
 
                 <!-- Primary CTA Button (Link to Google Form) --><a id="cta-button" href="[YOUR_GOOGLE_FORM_URL_HERE]" target="_blank"
-                   class="inline-flex items-center justify-center px-8 py-4 border-4 border-accent text-lg font-bold rounded-full text-white bg-accent hover:bg-accent-light transition-all duration-300 shadow-xl transform hover:scale-105">
+                   class="inline-flex items-center justify-center px-8 py-4 border-4 border-accent text-lg font-bold rounded-full text-light bg-accent hover:bg-accent-light transition-all duration-300 shadow-2xl transform hover:scale-105">
                     <i data-lucide="clipboard-list" class="w-6 h-6 mr-3"></i>
                     Begin Your Strategic Assessment
                 </a>
-                <p class="mt-4 text-sm opacity-75">Click here to access our confidential strategy intake form.</p>
+                <p class="mt-4 text-sm opacity-60">Click here to access our confidential strategy intake form.</p>
             </div>
         </header>
 
-        <!-- 2. Services / Value Proposition Section --><section class="py-16 sm:py-24 bg-white">
+        <!-- 2. Services / Value Proposition Section --><section class="py-16 sm:py-24 bg-primary text-light">
             <div class="max-w-6xl mx-auto px-4">
-                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-primary-dark">Our Expertise</h2>
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-light">Our Expertise</h2>
 
                 <div class="grid md:grid-cols-3 gap-8 text-center">
-                    <!-- Service 1 --><div class="p-6 bg-gray-50 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                    <!-- Service 1: Advanced Data Analytics --><div class="p-6 bg-secondary rounded-xl shadow-slick hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 border border-gray-700">
                         <div class="text-accent mb-4 mx-auto">
-                            <i data-lucide="trending-up" class="w-10 h-10 inline-block"></i>
+                            <i data-lucide="bar-chart-3" class="w-10 h-10 inline-block"></i>
                         </div>
-                        <h3 class="text-xl font-semibold mb-3 text-primary-dark">Performance Optimization</h3>
-                        <p class="text-gray-600 text-sm">Advanced analytics and tailored programs to unlock peak athletic potential and team synergy.</p>
+                        <h3 class="text-xl font-semibold mb-3 text-light">Advanced Data Analytics</h3>
+                        <p class="text-gray-400 text-sm">Bespoke analytical models and predictive tools providing actionable intelligence for strategic decision-making.</p>
                     </div>
 
-                    <!-- Service 2 --><div class="p-6 bg-gray-50 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                    <!-- Service 2: Market Research & Reporting --><div class="p-6 bg-secondary rounded-xl shadow-slick hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 border border-gray-700">
                         <div class="text-accent mb-4 mx-auto">
                             <i data-lucide="award" class="w-10 h-10 inline-block"></i>
                         </div>
-                        <h3 class="text-xl font-semibold mb-3 text-primary-dark">Strategic Career Management</h3>
-                        <p class="text-gray-600 text-sm">Expert guidance for athletes navigating contracts, transfers, and long-term career planning.</p>
+                        <h3 class="text-xl font-semibold mb-3 text-light">Market Research & Reporting</h3>
+                        <p class="text-gray-400 text-sm">Comprehensive market sizing, competitor analysis, and custom reports to inform investment and expansion strategies.</p>
                     </div>
 
-                    <!-- Service 3 --><div class="p-6 bg-gray-50 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                    <!-- Service 3: Data Infrastructure & Management --><div class="p-6 bg-secondary rounded-xl shadow-slick hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 border border-gray-700">
                         <div class="text-accent mb-4 mx-auto">
-                            <i data-lucide="handshake" class="w-10 h-10 inline-block"></i>
+                            <i data-lucide="database" class="w-10 h-10 inline-block"></i>
                         </div>
-                        <h3 class="text-xl font-semibold mb-3 text-primary-dark">Club & Organization Development</h3>
-                        <p class="text-gray-600 text-sm">Consulting on talent identification, squad building, and sustainable growth strategies for sports entities.</p>
+                        <h3 class="text-xl font-semibold mb-3 text-light">Data Infrastructure & Management</h3>
+                        <p class="text-gray-400 text-sm">Building secure, scalable data warehouses and management systems to centralize and optimize data flow.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 3. About Us / Call to Action Section (Replaces LinkedIn Feed) --><section class="py-16 sm:py-24 bg-primary-dark text-white">
+        <!-- 3. About Us / Call to Action Section --><section class="py-16 sm:py-24 bg-secondary text-light">
             <div class="max-w-4xl mx-auto px-4 text-center">
                 <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-accent">About OCO Sports Group</h2>
-                <p class="text-lg leading-relaxed mb-8 opacity-90">
-                    OCO Sports Group is dedicated to elevating the standard of excellence in sports. We partner with elite athletes, professional clubs, and aspiring organizations to provide unparalleled strategic insights, talent management, and development pathways. Our commitment is to foster success, on and off the field.
+                <p class="text-lg leading-relaxed mb-8 opacity-80">
+                    OCO Sports Group specializes in data-driven excellence. We partner with professional clubs and governing bodies to provide unparalleled strategic insights through rigorous data analytics, market research, and robust data management solutions. Our commitment is to foster evidence-based success in the complex world of professional sport.
                 </p>
-                <a href="#contact" class="inline-flex items-center justify-center px-8 py-3 border-2 border-accent text-lg font-semibold rounded-full text-white bg-transparent hover:bg-accent transition duration-300">
+                <a href="#contact" class="inline-flex items-center justify-center px-8 py-3 border-2 border-accent text-lg font-semibold rounded-full text-light bg-transparent hover:bg-accent transition duration-300 shadow-lg">
                     <i data-lucide="phone" class="w-5 h-5 mr-3"></i>
                     Talk to Our Team
                 </a>
@@ -131,11 +131,11 @@
         </section>
 
 
-        <!-- Footer --><footer id="contact" class="bg-gray-800 text-white py-12">
+        <!-- Footer --><footer id="contact" class="bg-primary text-light py-12">
             <div class="max-w-6xl mx-auto px-4 text-center sm:flex sm:justify-between sm:text-left">
                 <!-- Agency Info --><div class="mb-6 sm:mb-0">
                     <h3 class="font-extrabold text-xl text-accent mb-2">OCO Sports Group</h3>
-                    <p class="text-sm opacity-75">Elite Sports Strategy & Management</p>
+                    <p class="text-sm opacity-60">Elite Sports Strategy & Management</p>
                 </div>
 
                 <!-- Contact & Social --><div>
@@ -154,7 +154,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="mt-8 text-center text-xs opacity-50">
+            <div class="mt-8 text-center text-xs opacity-40">
                 &copy; 2024 OCO Sports Group. All rights reserved.
             </div>
         </footer>
